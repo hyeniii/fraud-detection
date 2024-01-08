@@ -1,0 +1,24 @@
+experiment_name: "GradientBoostingClassifier training"
+data_path: "data/creditcard.csv"
+target: "Class"
+
+tuning: False
+preprocessing:
+  sampler:
+    class: "RandomOverSampler"
+    module: "imblearn.over_sampling"
+  scaler:
+    class: "StandardScaler"
+    module: "sklearn.preprocessing"
+
+model:
+  class: "GradientBoostingClassifier"
+  module: "sklearn.ensemble"
+  params:
+    n_estimators: 143
+    learning_rate: 0.04690935629679825
+    max_depth: 6
+  save_path: "artifacts/model/gbc_model_best_param.joblib"
+  scoring_metric: 'recall'
+
+report_save_path: "artifacts/reports/gbc_best_param_report.csv"

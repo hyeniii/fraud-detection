@@ -1,0 +1,24 @@
+experiment_name: "SVC hp tuning"
+data_path: "data/creditcard.csv"
+target: "Class"
+
+tuning: True
+model:
+  class: "SVC"
+  module: "sklearn.svm"
+  params:
+    C: [1, 100]
+    kernel: ['linear', 'rbf']
+    class_weight: ["balanced"]
+  save_path: "artifacts/model/svc_model.joblib"
+  scoring_metric: 'recall'
+
+preprocessing:
+  sampler:
+    class: "RandomOverSampler"
+    module: "imblearn.over_sampling"
+  scaler:
+    class: "StandardScaler"
+    module: "sklearn.preprocessing"
+
+report_save_path: "artifacts/reports/svc_report.csv"

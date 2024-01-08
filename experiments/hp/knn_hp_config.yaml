@@ -1,0 +1,23 @@
+experiment_name: "KNeighborsClassifier hp tuning"
+data_path: "data/creditcard.csv"
+target: "Class"
+
+tuning: True
+model:
+  class: "KNeighborsClassifier"
+  module: "sklearn.neighbors"
+  params:
+    n_neighbors: [5, 15]
+    algorithm: ['auto', 'ball_tree', 'kd_tree']
+  save_path: "artifacts/model/knn_model.joblib"
+  scoring_metric: 'recall'
+
+preprocessing:
+  sampler:
+    class: "RandomOverSampler"
+    module: "imblearn.over_sampling"
+  scaler:
+    class: "StandardScaler"
+    module: "sklearn.preprocessing"
+
+report_save_path: "artifacts/reports/knn_report.csv"

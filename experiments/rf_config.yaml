@@ -1,0 +1,24 @@
+experiment_name: "RF Training"
+data_path: "data/creditcard.csv"
+target: "Class"
+
+tuning: False
+model:
+  class: "RandomForestClassifier"
+  module: "sklearn.ensemble"
+
+  params:
+    n_estimators: 476
+    max_depth: 39
+    class_weight: "balanced"
+  save_path: "artifacts/model/rf_model_oversample.joblib"
+
+preprocessing:
+  sampler:
+    class: "RandomOverSampler"
+    module: "imblearn.over_sampling"
+  scaler:
+    class: "StandardScaler"
+    module: "sklearn.preprocessing"
+
+report_save_path: "artifacts/reports/rf_oversample_report.csv"

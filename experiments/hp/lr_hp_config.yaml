@@ -1,0 +1,24 @@
+experiment_name: "LogisticRegression hp tuning"
+data_path: "data/creditcard.csv"
+target: "Class"
+
+tuning: True
+model:
+  class: "LogisticRegression"
+  module: "sklearn.linear_model"
+  params:
+    C: [1.0, 100.0]
+    max_iter: [100, 200]
+    class_weight: ["balanced"]
+  save_path: "artifacts/model/lg_model.joblib"
+  scoring_metric: 'recall'
+
+preprocessing:
+  sampler:
+    class:
+    module:
+  scaler:
+    class: "StandardScaler"
+    module: "sklearn.preprocessing"
+
+report_save_path: "artifacts/reports/lg_report.csv"

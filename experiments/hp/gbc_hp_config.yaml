@@ -1,0 +1,24 @@
+experiment_name: "GradientBoostingClassifier hp tuning"
+data_path: "data/creditcard.csv"
+target: "Class"
+
+tuning: True
+preprocessing:
+  sampler:
+    class: "RandomOverSampler"
+    module: "imblearn.over_sampling"
+  scaler:
+    class: "StandardScaler"
+    module: "sklearn.preprocessing"
+
+model:
+  class: "GradientBoostingClassifier"
+  module: "sklearn.ensemble"
+  params:
+    n_estimators: [50, 150]
+    learning_rate: [0.01, 0.1]
+    max_depth: [3, 7]
+  save_path: "artifacts/model/gbc_model.joblib"
+  scoring_metric: 'recall'
+
+report_save_path: "artifacts/reports/gbc_report.csv"

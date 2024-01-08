@@ -1,0 +1,24 @@
+experiment_name: "RandomForestClassifier hp tuning"
+data_path: "data/creditcard.csv"
+target: "Class"
+
+tuning: True
+model:
+  class: "RandomForestClassifier"
+  module: "sklearn.ensemble"
+  params:
+    n_estimators: [100, 300]
+    max_depth: [10, 50]
+    class_weight: ["balanced"]
+  save_path: "artifacts/model/rf_model.joblib"
+  scoring_metric: 'recall'
+
+preprocessing:
+  sampler:
+    class:
+    module:
+  scaler:
+    class: "StandardScaler"
+    module: "sklearn.preprocessing"
+  
+report_save_path: "artifacts/reports/rf_report.csv"
